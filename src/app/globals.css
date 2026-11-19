@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-main: #FFFFFF;
+    --bg-surface: #F8FAFC;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --accent-navy: #0F294A;
+    --accent-hover: #1E3A8A;
+    --border-color: #E2E8F0;
+  }
+
+  .dark {
+    --bg-main: #0B1120;
+    --bg-surface: #111827;
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --accent-navy: #3B82F6;
+    --accent-hover: #60A5FA;
+    --border-color: #1E293B;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+}
+
+/* Button & interactive tactile feedback (Emil rule) */
+button:active:not(:disabled),
+a[role="button"]:active:not([aria-disabled="true"]) {
+  transform: scale(0.97);
+}
+
+/* Prevent sticky hover on touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .interactive-hover:hover {
+    background-color: rgba(15, 41, 74, 0.04);
+  }
+  .dark .interactive-hover:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+}
+
+/* Tabular numbers for non-jitter counters */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.6);
+}
